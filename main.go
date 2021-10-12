@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -50,7 +51,7 @@ func ParseJSON(JsonPath string) [][]string {
 				outputcsv = append(
 					outputcsv, []string{
 						fmt.Sprintf("%v", node.(map[string]interface{})["name"]),
-						"",
+						strings.Split(fmt.Sprintf("%v", node.(map[string]interface{})["notes"]), "\n")[0],
 						tmp_DialogueOwner,
 						"",
 						fmt.Sprintf("%v", line)})
